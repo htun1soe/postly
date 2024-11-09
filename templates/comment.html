@@ -17,7 +17,7 @@
             <h5 class="mb-3">Comments</h5>
 
             {% for comment in comments %}
-                <div class="media d-flex align-items-center mb-3 p-2 border rounded">
+                <div class="media d-flex align-items-center mb-3 p-2 rounded">
                     <a href="{{ url_for('profile', id=comment.user_id) }}"> 
                         <img src="static/uploads/{{ comment['profile_photo'] }}" alt="Profile Picture" class="mr-3 rounded-circle" width="50" height="50">
                     </a>
