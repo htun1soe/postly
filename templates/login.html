@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %} Login to {% endblock %}
+
+{% block main %}
+    <div class="container mt-5 text-center" style="max-width: 300px;">
+        <h1 class="h3 fw-bold text-black">Welcome back</h1>
+        {% if get_flashed_messages() %}
+            <div class="alert alert-primary mt-3" role="alert">
+                {{ get_flashed_messages() | join(",") }}
+            </div>
+        {% endif %}
+        <form action="{{ url_for('login') }}" method="post" class="my-5">
+            <div class="mb-3">
+                <input type="text" name="username" placeholder="Username" autofocus autocomplete="off" class="form-control bg-light" required>
+            </div>
+            <div class="mb-5">
+                <input type="password" name="password" placeholder="Password" autocomplete="off" class="form-control bg-light" minlength="8" required>
+            </div>
+            <button class="btn btn-primary w-100" type="submit">Sign in</button>
+        </form>
+        <a href="{{ url_for('register') }}" class="text-purple">
+            Don't have an account?
+        </a>
+    </div>
+{% endblock %}

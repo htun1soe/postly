@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="container my-4" style="max-width: 600px">
+        {% if get_flashed_messages() %}
+            <div class="alert alert-info mb-3">
+                {{ get_flashed_messages() | join(", ") }}
+            </div>
+        {% endif %}
+        <form action="{{ url_for('comment') }}" method="post">
+            <input type="hidden" name="post_id" value="{{ post_id }}">
+            <textarea name="content" class="form-control bg-light mb-4" placeholder="Add a comment..." required></textarea>
+            <button class="btn btn-primary w-100" type="submit">Comment</button>
+        </form>
+
+        <div class="comments-section mt-4">
+            <h5 class="mb-3">Comments</h5>
+
+            {% for comment in comments %}
+                <div class="media d-flex align-items-center mb-3 p-2 border rounded">
+                    <a href="{{ url_for('profile', id=comment.user_id) }}">
+                        {% if session["profile_photo"] %}
+                            <img src="static/uploads/{{ comment['profile_photo'] }}" alt="Profile Picture" class="mr-3 rounded-circle" width="50" height="50">
+                        {% else %}
+                            <img src="static/uploads/{{ comment['profile_photo'] }}" alt="Profile Picture" class="mr-3 rounded-circle" width="50" height="50">
+                        {% endif %}
+                    </a>
+
+                    <div class="media-body ms-3">
+                        <h3 class="fs-6 fw-bold">{{ comment.username }}</h3>
+                        <p class="mb-1">{{ comment.comment_text }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

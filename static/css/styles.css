@@ -1,0 +1,84 @@
+body {
+    font-family: "Inter", serif !important;
+}
+
+
+nav {
+    border-bottom: 2px solid #F8F9FA !important;
+}
+
+#nav-search {
+    border: none;
+}
+
+#nav-search:focus {
+    border: none !important;
+}
+
+.dropdown-item:active {
+    background-color: #F8F9FA !important;
+    color: #000 !important;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.text-purple {
+    color: #931CE8;
+}
+
+.text-black {
+    color: #222222;
+}
+
+.btn {
+    border-color: #BD5FFF !important;
+    background-color: #BD5FFF !important;
+    border-radius: 1.5rem;
+}
+
+.btn:hover {
+    background-color: #bd52fa;
+}
+
+.form-control {
+    border-radius: 0.65rem;
+}
+
+.form-control:focus {
+    border-color: #931CE8;
+    box-shadow: 0 0 0 .05rem #931CE8;
+    background: #FFF !important;
+}
+
+img {
+    object-fit: contain !important;
+}
+
+#error-message {
+    display: none;
+}
+
+
+@media (min-width: 766px) {
+    #nav-form {
+        background-color: #F8F9FA;
+        padding: 3px 20px;
+        border-radius: 20px;
+        color: #aeb3bc;
+    }
+
+    #nav-form > input {
+        box-shadow: none !important;
+    }
+
+    #nav-form > input:focus {
+        background: #F8F9FA !important;
+    }
+
+    #nav-form:focus-within {
+        color: black;
+    }
+
+}

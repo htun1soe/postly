@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="container my-5" style="max-width: 600px;">
+        {% if get_flashed_messages() %}
+            <div class="alert alert-info text-center">
+                {{ get_flashed_messages() | join(", ") }}
+            </div>
+        {% endif %}
+
+        <form action="{{ url_for('create_post') }}" method="post" class="my-3">
+
+            <div class="mb-4">
+                <label for="post-content" class="form-label">What's on your mind?</label>
+                <textarea name="content" class="form-control bg-light" id="post-content" rows="3" autofocus></textarea>
+            </div>
+
+            <button class="btn btn-primary w-100">Share your thoughts</button>
+        </form>
+    </div>
+{% endblock %}

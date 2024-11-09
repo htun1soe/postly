@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="container mt-5 text-center" style="max-width: 300px;">
+        <h1 class="h3">Explore friends</h1>
+        {% if get_flashed_messages() %}
+            <div class="alert alert-primary mt-3" role="alert">
+                {{ get_flashed_messages() | join(",") }}
+            </div>
+        {% endif %}
+        <form action="{{ url_for('search') }}" method="post" class="mt-4">
+            <div class="mb-3">
+                <input type="text" name="username" placeholder="Name" autofocus autocomplete="off" class="form-control bg-light" required>
+            </div>
+
+            <button class="btn btn-primary mt-3 w-100" type="submit">Search</button>
+        </form>
+        <hr>
+        <a href="{{ url_for('index') }}" class="text-purple">
+
+            <button class="btn btn-primary w-100">
+                Go back to news feed
+            </button>
+        </a>
+    </div>
+{% endblock %}

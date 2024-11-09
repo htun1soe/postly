@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <div class="container mt-4 text-black" style="max-width: 600px">
+        {% if get_flashed_messages() %}
+            <div class="alert alert-info mb-3">
+                {{ get_flashed_messages() | join(", ") }}
+            </div>
+        {% endif %}
+        
+        <div class="d-flex mb-3">
+            <a href="{{ url_for('profile', id=session['user_id']) }}">
+                {% if session["profile_photo"] %}
+                    <img src="{{ url_for('static', filename='uploads/' + session['profile_photo']) }}" alt="Profile Picture" class="rounded-circle me-3" style="width: 40px; height: 40px; object-fit: cover;">
+                {% else %}
+                    <img src="{{ url_for('static', filename='uploads/default.png') }}" alt="Profile Picture" class="rounded-circle me-3" style="width: 40px; height: 40px; object-fit: cover;background: #F8F9FA">
+                {% endif %}
+            </a>
+            <a class="d-flex justify-content-center align-items-center text-decoration-none text-secondary" href="{{ url_for('create_post') }}">What's on your mind?</a>
+        </div>
+        <hr>
+        <div id="feed">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/feed.js') }}"></script>
+{% endblock %}

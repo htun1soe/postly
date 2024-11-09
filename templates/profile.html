@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="container text-black" style="max-width: 600px;">
+        <div class="text-center fw-bold fs-1 my-5" id="error-message">
+            <a href="{{ url_for('index') }}">
+                <button class="btn btn-primary w-auto">Go back to news feed</button>
+            </a>
+        </div>
+        <div class="main-content">
+            <div class="my-3 text-center text-md-start">
+                <img id="profile-photo" class="rounded-circle" height="200px" width="200px" style="background: #F8F9FA;" />
+            </div>
+            <h1 id="username" class="fw-bold text-center text-md-start"></h1>
+            <p class="text-secondary text-center text-md-start" id="followers"></p>
+            <p id="bio" class="text-center text-md-start"></p>
+            {% if id == session["user_id"] %}
+                <a href="{{ url_for('update_profile') }}">
+                    <button class="btn btn-primary my-2 w-100">Edit profile</button>
+                </a>
+            {% else %}
+                {% if followed_user %}
+                    <a href="{{ url_for('unfollow', id=id) }}">
+                        <button class="btn btn-primary my-2 w-100">Unfollow</button>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('follow', id=id) }}">
+                        <button class="btn btn-primary my-2 w-100">Follow</button>
+                    </a>
+                {% endif %}
+
+            {% endif %}
+            <hr>
+        </div>
+        <div id="posts">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock %}

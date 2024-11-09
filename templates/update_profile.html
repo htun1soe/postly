@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="container mt-5" style="max-width: 300px;">
+        <h1 class="h3 fw-bold text-center text-black">Update profile</h1>
+        {% if get_flashed_messages() %}
+            <div class="alert alert-primary mt-3" role="alert">
+                {{ get_flashed_messages() | join(",") }}
+            </div>
+        {% endif %}
+        <form action="{{ url_for('update_profile') }}" method="post" enctype="multipart/form-data"  class="my-5">
+            <div class="mb-3">
+                <label for="name" class="form-label">New name</label>
+                <input name="username" type="text" autocomplete="off" class="form-control bg-light" id="name">
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Choose your profile photo</label>
+                <input class="form-control" id="formFile" type="file" name="profile_photo" accept="image/png, image/jepg, image/jpg">
+            </div>
+            <div class="mb-3">
+                <textarea name="bio" class="form-control bg-light" placeholder="Describe yourself..." id="bio-text" rows="3"></textarea>
+            </div>
+
+            <button class="btn btn-primary w-100">Update your profile</button>
+        </form>
+    </div>
+{% endblock %}
