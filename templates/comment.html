@@ -18,15 +18,11 @@
 
             {% for comment in comments %}
                 <div class="media d-flex align-items-center mb-3 p-2 border rounded">
-                    <a href="{{ url_for('profile', id=comment.user_id) }}">
-                        {% if session["profile_photo"] %}
-                            <img src="static/uploads/{{ comment['profile_photo'] }}" alt="Profile Picture" class="mr-3 rounded-circle" width="50" height="50">
-                        {% else %}
-                            <img src="static/uploads/{{ comment['profile_photo'] }}" alt="Profile Picture" class="mr-3 rounded-circle" width="50" height="50">
-                        {% endif %}
+                    <a href="{{ url_for('profile', id=comment.user_id) }}"> 
+                        <img src="static/uploads/{{ comment['profile_photo'] }}" alt="Profile Picture" class="mr-3 rounded-circle" width="50" height="50">
                     </a>
 
-                    <div class="media-body ms-3">
+                    <div class="media-body ms-3 bg-light p-2 rounded">
                         <h3 class="fs-6 fw-bold">{{ comment.username }}</h3>
                         <p class="mb-1">{{ comment.comment_text }}</p>
                     </div>
