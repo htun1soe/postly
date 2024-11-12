@@ -81,5 +81,6 @@ function fetchPosts() {
 }
 
 
+
 // Call fetchPosts when the page loads
 window.onload = fetchPosts;
