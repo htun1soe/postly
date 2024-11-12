@@ -81,16 +81,5 @@ function fetchPosts() {
 }
 
 
-// Functions for actions (like, comment)
-function likePost(postId) {
-    console.log(`Liking post ${postId}`);
-    // Implement like functionality here
-}
-
-function commentPost(postId) {
-    console.log(`Commenting on post ${postId}`);
-    // Implement comment functionality here
-}
-
 // Call fetchPosts when the page loads
 window.onload = fetchPosts;
