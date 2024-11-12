@@ -3,7 +3,7 @@ const queryString = window.location.search;
 
 // Use URLSearchParams to parse it
 const urlParams = new URLSearchParams(queryString);
-const user_id = urlParams.get("id"); // Get the value of the "id" parameter
+const user_id = urlParams.get("id"); 
 
 fetch(`/api/profile/${user_id}`)
     .then(response => response.json())
@@ -29,11 +29,9 @@ fetch(`/api/profile/${user_id}`)
 
             data.posts.forEach(post => {
 
-                // Create Bootstrap Card
                 const postDiv = document.createElement("div");
                 postDiv.classList.add("card", "shadow-sm", "mb-3");
 
-                // Profile Header with Image
                 const postHeader = document.createElement("div");
                 postHeader.classList.add("card-header", "d-flex", "align-items-center");
 
@@ -48,13 +46,11 @@ fetch(`/api/profile/${user_id}`)
             `;
                 postDiv.appendChild(postHeader);
 
-                // Post Content
                 const postContent = document.createElement("div");
                 postContent.classList.add("card-body");
                 postContent.innerHTML = `<p class="card-text">${post.content}</p>`;
                 postDiv.appendChild(postContent);
 
-                // Post Stats
                 const postStats = document.createElement("div");
                 postStats.classList.add("card-footer", "text-muted");
 
@@ -66,7 +62,6 @@ fetch(`/api/profile/${user_id}`)
                         `;
                 postDiv.appendChild(postStats);
 
-                // Post Actions (Buttons)
                 const postActions = document.createElement("div");
                 postActions.classList.add("card-footer", "d-flex", "gap-2");
                 postActions.innerHTML = `
@@ -83,20 +78,6 @@ fetch(`/api/profile/${user_id}`)
                 feedContainer.appendChild(postDiv);
             });
         }
-
-
-        // Functions for actions (like, comment)
-        function likePost(postId) {
-            console.log(`Liking post ${postId}`);
-            // Implement like functionality here
-        }
-
-        function commentPost(postId) {
-            console.log(`Commenting on post ${postId}`);
-            // Implement comment functionality here
-        }
-
-        // Call fetchPosts when the page loads
     })
     .catch(error => {
         console.log('Error:', error);

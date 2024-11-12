@@ -11,11 +11,9 @@ function fetchPosts() {
             feedContainer.innerHTML = '';
 
             feed.forEach(post => {
-                // Create Bootstrap Card
                 const postDiv = document.createElement("div");
                 postDiv.classList.add("card", "shadow-sm", "mb-3");
 
-                // Profile Header with Image
                 const postHeader = document.createElement("div");
                 postHeader.classList.add("card-header", "d-flex", "align-items-center");
 
@@ -57,7 +55,6 @@ function fetchPosts() {
                 `;
                 postDiv.appendChild(postStats);
 
-                // Post Actions (Buttons)
                 const postActions = document.createElement("div");
                 postActions.classList.add("card-footer", "d-flex", "gap-2");
                 postActions.innerHTML = `
@@ -81,6 +78,4 @@ function fetchPosts() {
 }
 
 
-
-// Call fetchPosts when the page loads
 window.onload = fetchPosts;
