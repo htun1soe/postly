@@ -1,6 +1,6 @@
 # Postly
 
-The **Postly** is a simple yet functional social media platform that allows users to create posts, manage their profiles, follow other users, and view a personalized news feed. Built using **Flask** for the backend and **JavaScript** for the frontend, this project demonstrates essential web development practices such as user authentication, API development, and data management with **SQLite** as the database.
+The **Postly** is a simple yet functional social media platform that allows users to create posts, manage their profiles, follow other users, and browse a news feed. Built using **Flask** for the backend and **JavaScript** for the frontend, this project demonstrates essential web development practices such as user authentication, API development, and data management with **SQLite** as the database.
 
 ## Link
 - Demo: <https://youtu.be/1im9mXVUwEA>
