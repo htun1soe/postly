@@ -4,7 +4,6 @@ The **Postly** is a simple yet functional social media platform that allows user
 
 ## Link
 - Demo: <https://youtu.be/1im9mXVUwEA>
-- Check it out at <https://postly-mwpe.onrender.com>
 
 ## Note
 
